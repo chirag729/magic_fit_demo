@@ -17,8 +17,6 @@ import java.util.List;
 
 public class DataPointsView extends View implements LandmarksListListener {
 
-    private final Object lock = new Object();
-
     private List<LandmarkProto.NormalizedLandmark> landmarks;
 
     private static final float TEXT_SIZE = 30.0f;
@@ -64,8 +62,6 @@ public class DataPointsView extends View implements LandmarksListListener {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
-        System.out.println();
 
         if(getWidth() == 0 || getHeight() == 0) {
             return;

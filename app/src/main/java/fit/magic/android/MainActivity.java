@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String BINARY_GRAPH_NAME = "pose_tracking_gpu.binarypb";
     private static final String INPUT_VIDEO_STREAM_NAME = "input_video";
     private static final String OUTPUT_VIDEO_STREAM_NAME = "output_video";
+    private static final String LANDMARKS_STREAM_NAME = "pose_landmarks";
     CameraHelper.CameraFacing cameraFacing = CameraHelper.CameraFacing.FRONT;
     private static final boolean FLIP_FRAMES_VERTICALLY = true;
 
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         LandmarksPacketCallback callback = new LandmarksPacketCallback();
         callback.setListener(dataPointsView);
 
-        processor.addPacketCallback("pose_landmarks",callback);
+        processor.addPacketCallback(LANDMARKS_STREAM_NAME,callback);
 
         PermissionHelper.checkAndRequestCameraPermissions(this);
     }
